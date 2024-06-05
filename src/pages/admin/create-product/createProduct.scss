@@ -1,0 +1,30 @@
+.createProduct {
+    padding: 20px;
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 500px;
+        padding: 30px 0;
+        &__input {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            input {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: #ddd;
+            }
+        }
+        &__btn {
+            background: #aaa;
+            padding: 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

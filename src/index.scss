@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+.container {
+    max-width: 1440px;
+    width: 90%;
+    margin: 0 auto;
+}
