@@ -4,22 +4,19 @@ import { useSelector } from "react-redux";
 import { usePutProductMutation } from "../../context/api/productApi";
 
 const EditModal = ({ setProductData, productData }) => {
-    // const [show, setShow] = useState(false);
-
-    // const productData = useSelector((state) => state.productEdit.value);
-
     const [editProduct, { data }] = usePutProductMutation();
 
-    console.log(productData);
-    console.log(data);
+    const [editedProduct, setEditedProduct] = useState({ ...productData });
 
     const handleChange = (e) => {
         let { name, value } = e.target;
-        setProductData((prev) => ({ ...prev, [name]: value }));
+        setEditedProduct((prev) => ({ ...prev, [name]: value }));
     };
     const handleEditProduct = (e) => {
         e.preventDefault();
-        editProduct({ id: productData.id, body: productData });
+        editProduct({ id: editedProduct.id, body: editedProduct });
+        console.log(editedProduct.id);
+        console.log(editedProduct);
     };
 
     return (
@@ -31,7 +28,7 @@ const EditModal = ({ setProductData, productData }) => {
                     type="text"
                     id="title"
                     name="title"
-                    value={productData.title}
+                    value={editedProduct.title}
                     onChange={handleChange}
                 />
                 <label htmlFor="price">Price</label>
@@ -39,7 +36,7 @@ const EditModal = ({ setProductData, productData }) => {
                     id="price"
                     type="number"
                     name="price"
-                    value={productData.price}
+                    value={editedProduct.price}
                     onChange={handleChange}
                 />
                 <label htmlFor="image">Image</label>
@@ -47,7 +44,7 @@ const EditModal = ({ setProductData, productData }) => {
                     type="text"
                     name="image"
                     id="image"
-                    value={productData.image}
+                    value={editedProduct.image}
                     onChange={handleChange}
                 />
                 <label htmlFor="category">Category</label>
@@ -55,10 +52,10 @@ const EditModal = ({ setProductData, productData }) => {
                     id="category"
                     type="text"
                     name="category"
-                    value={productData.category}
+                    value={editedProduct.category}
                     onChange={handleChange}
                 />
-                <button>Save</button>
+                <button type="submit">Save</button>
             </form>
         </div>
     );

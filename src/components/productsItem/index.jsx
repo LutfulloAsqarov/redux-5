@@ -20,13 +20,13 @@ const ProductsItem = ({ product, setProductData }) => {
         <div className="products__card">
             <div className="products__card__img">
                 <Link to={`/productDetail/${product.id}`}>
-                    <img src={product.image} alt="" />
+                    <img src={product?.image} alt="" />
                 </Link>
             </div>
             <div className="products__card__info">
-                <h3>{product.title}</h3>
+                <h3>{product?.title}</h3>
                 <div className="products__card__price">
-                    <p>${product.price}</p>
+                    <p>${product?.price}</p>
                     <div>
                         {pathname.includes("/admin") ? (
                             <div className="products__card__btns">
